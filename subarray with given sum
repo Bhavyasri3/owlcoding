@@ -1,0 +1,23 @@
+#subarray with given sum
+arr=list(map(int,input().split()))
+pre=[]
+sum=0
+x=0
+for i in arr:
+    x=x+i
+    pre.append(x)
+d={}
+cnt=0
+
+for i in range(len(pre)):
+    if (pre[i]==sum):
+        cnt+=1
+    if (pre[i]-sum in d):
+        cnt+=len (d[pre[i]-sum])
+    if pre[i] in d:
+        a=d[pre[i]]
+        a.append(i)
+        d[pre[i]]=a
+    else:
+        d[pre[i]]=[i]
+print(cnt)
